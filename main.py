@@ -23,7 +23,7 @@ headers = {
 response = requests.request('GET', url, headers=headers)
 sss = json.loads(response.text)
 lists = sss['data']
-for i in range(2, sss['meta']['pagination']['total_pages']):
+for i in range(2, sss['meta']['pagination']['total_pages'] + 1):
     print(i)
     response2 = json.loads(requests.request('GET', f'{panel}/api/application/servers?page={i}', headers=headers).text)['data']
     lists += response2
